@@ -1,21 +1,32 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Home from './Components/Home';
+import Sidebar from './Components/Sidebar';
+import Search from './Components/Search';
+import Favorite from './Components/Favorite';
 import GetBeer from './Components/GetBeer';
-
 
 class App extends React.Component {
 
   render() {
     return (
-      <div style={styles}>
-        <GetBeer key={BASE_KEY} />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Navbar />
+            <Sidebar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/random" component={GetBeer} />
+          <Route exact path="/favorites" component={Favorite} />
+
+          
+        </div>
+      </BrowserRouter>
     )
   }
 }
-const styles = {
-  position: 'absolute',
-  height: '100%',
-  width: '100%'
-}
-const BASE_KEY = process.env.REACT_APP_KEY;
+
+
+
 export default App;

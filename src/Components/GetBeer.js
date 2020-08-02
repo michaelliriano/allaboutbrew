@@ -17,33 +17,30 @@ export default class GetBeer extends Component {
     render() {
         const {beers} = this.state;
         const displayBeers  = beers.map((drink) => {
-            if(drink.labels && drink.description){
+            if(drink.labels){
                 return (
-                    <div style={beerStyles} key={drink.id}>
-                        <h1>{drink.name}</h1>
-                        <img src={drink.labels.medium} alt=""/>
-                        <p>{drink.style.category.name}</p>
-                        <p>{drink.description}</p>
+                    <div className="beer-item" style={div} key={drink.id}>
+                        <img className="flow-text " src={drink.labels.medium} height="150" width="150" alt=""/>
+                        <h1 className="flow-text" style={h1}>{drink.name}</h1>    
                     </div>
                 )
             }
         })
         return (
-            <div style={container}>
-              {displayBeers}
-            </div>
+            
+                <div className="beer-container" >
+                    {displayBeers}
+                </div>
+            
         )
     }
 }
-const beerStyles = {
-    position: 'relative',
-    height: 'auto',
-    width: '300px',
-    textAlign: 'center',
-    margin: '20px'
+const h1 = {
+    fontSize: "20px"
 }
-const container = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignContent: 'space-around'
+const div = {
+    textAlign: 'center'
 }
+
+
+const BASE_KEY = process.env.REACT_APP_KEY;
