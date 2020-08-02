@@ -34,3 +34,9 @@ body{
   width: 150px;
   margin: 30px;
 }
+.main-title{
+  position: relative;
+  left: 10%;
+  text-align: center;
+
+}

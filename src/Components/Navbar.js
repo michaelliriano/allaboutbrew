@@ -11,7 +11,7 @@ export default class Navbar extends Component {
               <div className="navbar-fixed">
                   <nav style={navStyle}>
                 <div className="nav-wrapper">
-                <a href="#" className="brand-logo center">🍻  All About Brew 🍻 </a>
+                <a  className="brand-logo center"><span>🍻</span>  All About Brew <span>🍻</span> </a>
                 
                 </div>
               </nav>

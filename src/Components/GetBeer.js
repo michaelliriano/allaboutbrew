@@ -9,7 +9,7 @@ export default class GetBeer extends Component {
 
     }
     async componentDidMount() {
-        await axios.get(`https://api.brewerydb.com/v2/beers/?key=${process.env.REACT_APP_KEY}`).then((res) => {
+        await axios.get(`https://api.brewerydb.com/v2/beers/?key=7d116c2a012e5ed6f81222634ab65613`).then((res) => {
           const beers  =  res.data.data;
           this.setState({beers})
         })
@@ -27,10 +27,15 @@ export default class GetBeer extends Component {
             }
         })
         return (
-            
+            <div>
+                <div className="main-title">
+                    <h1>Trending this week:</h1>
+                </div>
                 <div className="beer-container" >
                     {displayBeers}
                 </div>
+            </div>
+          
             
         )
     }
@@ -43,4 +48,3 @@ const div = {
 }
 
 
-const BASE_KEY = process.env.REACT_APP_KEY;
