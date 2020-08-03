@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 
 
@@ -14,14 +15,38 @@ export default class GetBeer extends Component {
           this.setState({beers})
         })
       }
+      handleClick = (e) => {
+        console.log(e.target.parentElement)
+      }
     render() {
         const {beers} = this.state;
+        const date = new Date();
+        const month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        const current = month[date.getMonth()]
         const displayBeers  = beers.map((drink) => {
             if(drink.labels){
                 return (
-                    <div className="beer-item" style={div} key={drink.id}>
-                        <img className="flow-text " src={drink.labels.medium} height="150" width="150" alt=""/>
-                        <h1 className="flow-text" style={h1}>{drink.name}</h1>    
+                    <div className="beer-item z-depth-5" style={div} key={drink.id}>
+                        <img  src={drink.labels.medium} height="150" width="150" alt=""/>
+                        <div className="single-beer-title">
+                        <h1  style={h1}>{drink.name}</h1> 
+                        </div>
+                            <div className="single-beer-button">
+                            <Link to={"/discover/" + drink.id}><button >Learn More</button></Link>
+                            </div>   
+                        
                     </div>
                 )
             }
@@ -29,7 +54,7 @@ export default class GetBeer extends Component {
         return (
             <div>
                 <div className="main-title">
-                    <h1>Trending this week:</h1>
+                <h1>Discover: {current} </h1>
                 </div>
                 <div className="beer-container" >
                     {displayBeers}

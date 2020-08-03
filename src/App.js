@@ -6,6 +6,7 @@ import Sidebar from './Components/Sidebar';
 import Search from './Components/Search';
 import Favorite from './Components/Favorite';
 import GetBeer from './Components/GetBeer';
+import Beer from './Components/Beer';
 
 class App extends React.Component {
 
@@ -17,10 +18,9 @@ class App extends React.Component {
             <Sidebar />
           <Route exact path="/" component={Home} />
           <Route exact path="/search" component={Search} />
-          <Route exact path="/random" component={GetBeer} />
+          <Route exact path="/discover" component={GetBeer} />
+          <Route exact path="/discover/:id" component={Beer} />
           <Route exact path="/favorites" component={Favorite} />
-
-          
         </div>
       </BrowserRouter>
     )
