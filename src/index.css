@@ -1,5 +1,7 @@
 body{
   background-color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 .sidebar {
   position: fixed;
@@ -13,7 +15,10 @@ body{
   position: absolute;
   display: flex;
   left: 20%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
 h1{
   font-family: 'Trirong', serif;
 }
@@ -42,9 +47,6 @@ h1{
   border-radius: 10px;
 }
 
-.beer-item:hover{
-  cursor: pointer;
-}
 .single-beer-title{
   position: relative;
   margin-top: 42px;
@@ -78,6 +80,13 @@ h1{
   border-radius: 10px;
   position: relative;
   top: 14%;
+  cursor: pointer;
+}
+.single-beer-info{
+  position: relative;
+  height: 1000px;
+  width: 500px;
+
 }
 .main-title{
   position: relative;
@@ -95,8 +104,9 @@ h1{
   width: 600px;
 }
 
-.loading{
-  position: absolute;
-  top: 50%;
-  left: 50%
+
+.loader{
+  position: relative;
+  top: 50;
+
 }

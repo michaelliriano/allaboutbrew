@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
+import Loading from './Loading';
 
 
 export default class GetBeer extends Component {
     state={
         beers: [],
-
+        loading: false
     }
     async componentDidMount() {
         await axios.get(`https://api.brewerydb.com/v2/beers/?key=7d116c2a012e5ed6f81222634ab65613`).then((res) => {
           const beers  =  res.data.data;
-          this.setState({beers})
+          this.setState({
+              beers: beers,
+              loading: true
+          })
         })
       }
       handleClick = (e) => {
@@ -21,7 +24,7 @@ export default class GetBeer extends Component {
     render() {
         const {beers} = this.state;
         const date = new Date();
-        const month = new Array();
+        const month = [];
         month[0] = "January";
         month[1] = "February";
         month[2] = "March";
@@ -45,8 +48,7 @@ export default class GetBeer extends Component {
                         </div>
                             <div className="single-beer-button">
                             <Link to={"/discover/" + drink.id}><button >Learn More</button></Link>
-                            </div>   
-                        
+                            </div>       
                     </div>
                 )
             }
@@ -55,13 +57,15 @@ export default class GetBeer extends Component {
             <div>
                 <div className="main-title">
                 <h1>Discover: {current} </h1>
+                
+                </div>
+                <div className="loader">
+                <Loading props={this.state.loading}/>
                 </div>
                 <div className="beer-container" >
                     {displayBeers}
                 </div>
-            </div>
-          
-            
+            </div>    
         )
     }
 }
