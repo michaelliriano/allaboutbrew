@@ -15,6 +15,7 @@ body{
   position: absolute;
   display: flex;
   left: 20%;
+  height: 100%;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -84,9 +85,13 @@ h1{
 }
 .single-beer-info{
   position: relative;
-  height: 1000px;
-  width: 500px;
-
+  height: 700px;
+  width: 400px;
+  padding: 30px;
+  text-align: center;
+}
+.single-beer h1{
+  font-size: 25px;
 }
 .main-title{
   position: relative;
@@ -101,12 +106,19 @@ h1{
 .single-beer{
   text-align: center;
   position: relative;
-  width: 600px;
+  height: 700px;
+  width: 400px;
+  padding: 10px;
 }
 
 
 .loader{
   position: relative;
   top: 50;
-
+}
+.single-beer-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
 }

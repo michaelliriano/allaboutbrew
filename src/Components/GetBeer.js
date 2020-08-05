@@ -60,7 +60,6 @@ export default class GetBeer extends Component {
                 
                 </div>
                 <div className="loader">
-                <Loading props={this.state.loading}/>
                 </div>
                 <div className="beer-container" >
                     {displayBeers}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import Loading from './Loading';
+
 
 export default class Beer extends Component {
     state={
@@ -47,30 +47,33 @@ export default class Beer extends Component {
         if(loading === false){
             return(
                 <div className="main-content">
-                    <Loading />
+                    
                 </div>
             )
         } else if(beer.description) {
            return(
                 <div className="main-content">
-                <Link to="/discover"> <i className="material-icons medium">arrow_back</i></Link>
+                    
+                    <div className="single-beer-container">
                     <div className="single-beer">
-                    <h1>{beer.name}</h1>
-                    <img src={beer.img.medium} height="300px" width="300px" alt=""/>
-                    <p>{beer.description}</p>
-                     </div>
-                     <div className="single-beer-info">
-                     <h3>BREW FACTS:</h3>
-                    <p>Name: {beer.name}</p>
-                    <p>Status: {beer.status}</p>
-                    <p>Category: {beer.style.category.name}</p>
-                    <p>Organic: {beer.isOrganic}</p>
-                    <p>Retired: {beer.isRetired}</p>
-                    <h3>Style:</h3>
-                    <p>What style of beer is this?</p>
-                    <p>{beer.style.name} (A.K.A {beer.style.shortName})</p>
-                    <p>Details:</p>
-                    <p>{beer.style.description}</p>
+                        <h1>{beer.name}</h1>
+                        <img src={beer.img.medium} height="300px" width="300px" alt=""/>
+                        <h6>Description:</h6>
+                        <p>{beer.description}</p>
+                    </div>
+                    <div className="single-beer-info">
+                        <h3>BREW FACTS:</h3>
+                        <p>Name: {beer.name}</p>
+                        <p>Status: {beer.status}</p>
+                        <p>Category: {beer.style.category.name}</p>
+                        <p>Organic: {beer.isOrganic}</p>
+                        <p>Retired: {beer.isRetired}</p>
+                        <h3>Style:</h3>
+                        <p>What style of beer is this?</p>
+                        <p>{beer.style.name} (A.K.A {beer.style.shortName})</p>
+                        <p>Details:</p>
+                        <p>{beer.style.description}</p>
+                    </div>
                     </div>
                     
             </div>
@@ -97,7 +100,7 @@ export default class Beer extends Component {
                         <p>Details:</p>
                         <p>{beer.style.description}</p>
                         </div>
-                        <Link to="/discover"> <i className="material-icons medium">arrow_back</i></Link>
+                        
                     </div>
         } 
     }
