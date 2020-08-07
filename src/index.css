@@ -1,17 +1,19 @@
-body{
-  background-color: #ffffff;
+* {
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: #ffffff;
+}
 .sidebar {
   position: fixed;
-  background-color:#3b6978;
+  background-color: #3b6978;
   height: 100%;
   width: 20%;
   text-align: center;
   z-index: 900;
 }
-.main-content{
+.main-content {
   position: absolute;
   display: flex;
   left: 20%;
@@ -20,18 +22,18 @@ body{
   justify-content: center;
 }
 
-h1{
+h1 {
   font-family: 'Trirong', serif;
 }
-.nav-item{
+.nav-item {
   padding: 30px 0;
   color: #ffffff;
   border-bottom: 1px solid #ffffff;
 }
-.nav-item i{
+.nav-item i {
   font-size: 30px;
 }
-.beer-container{
+.beer-container {
   position: absolute;
   padding: 0 5%;
   left: 20%;
@@ -39,7 +41,7 @@ h1{
   flex-wrap: wrap;
   justify-content: center;
 }
-.beer-item{
+.beer-item {
   position: relative;
   height: 350px;
   width: 250px;
@@ -48,7 +50,7 @@ h1{
   border-radius: 10px;
 }
 
-.single-beer-title{
+.single-beer-title {
   position: relative;
   margin-top: 42px;
   height: 80px;
@@ -57,25 +59,23 @@ h1{
   background-color: #204051;
   border-radius: 3px solid #000000;
 }
-.single-beer-title h1{
+.single-beer-title h1 {
   display: block;
   position: relative;
   color: #fff;
   margin: auto 0;
   top: 15%;
-  
-
 }
-.single-beer-button{
+.single-beer-button {
   position: relative;
   height: 70.4px;
   width: auto;
   background-color: #3b6978;
   border-radius: 1px;
 }
-.single-beer-button button{
+.single-beer-button button {
   height: 50px;
-  background-color:#26a69a ;
+  background-color: #26a69a;
   border: none;
   color: #fff;
   border-radius: 10px;
@@ -83,27 +83,31 @@ h1{
   top: 14%;
   cursor: pointer;
 }
-.single-beer-info{
+.single-beer-info {
   position: relative;
   height: 700px;
   width: 400px;
   padding: 30px;
   text-align: center;
 }
-.single-beer h1{
+.single-beer h1 {
   font-size: 25px;
 }
-.main-title{
+.ingredients {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  margin: 0;
+}
+.main-title {
   position: relative;
   left: 10%;
   text-align: center;
   background-color: #26a69a;
   overflow: hidden;
   color: #ffffff;
-
-
 }
-.single-beer{
+.single-beer {
   text-align: center;
   position: relative;
   height: 700px;
@@ -111,12 +115,11 @@ h1{
   padding: 10px;
 }
 
-
-.loader{
+.loader {
   position: relative;
   top: 50;
 }
-.single-beer-container{
+.single-beer-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
