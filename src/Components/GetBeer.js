@@ -41,23 +41,25 @@ export default class GetBeer extends Component {
     const displayBeers = beers.map((drink) => {
       if (drink.labels) {
         return (
-          <div className="beer-item z-depth-5" style={div} key={drink.id}>
-            <div className="add-favorite">
-              <AddFavorite id={drink} />
-            </div>
-            <img src={drink.labels.medium} height="150" width="150" alt="" />
-            <div className="single-beer-title">
-              <h1 style={h1}>{drink.name}</h1>
-            </div>
-            <div className="single-beer-button">
-              <Link to={'/discover/' + drink.id}>
-                <button>Learn More</button>
-              </Link>
+          <div key={drink.id}>
+            <div className="beer-item z-depth-5" style={div} key={drink.id}>
+              <div className="add-favorite">
+                <AddFavorite id={drink} />
+              </div>
+              <img src={drink.labels.medium} height="150" width="150" alt="" />
+              <div className="single-beer-title">
+                <h1 style={h1}>{drink.name}</h1>
+              </div>
+              <div className="single-beer-button">
+                <Link to={'/discover/' + drink.id}>
+                  <button>Learn More</button>
+                </Link>
+              </div>
             </div>
           </div>
         );
       } else {
-        return <div></div>;
+        return <div key={drink.id}></div>;
       }
     });
     return (

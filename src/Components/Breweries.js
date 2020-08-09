@@ -8,7 +8,6 @@ export default class Breweries extends Component {
   async componentDidMount() {
     try {
       let id = this.props.props.match.params.id;
-      console.log(id);
       const response = await axios.get(
         `https://api.brewerydb.com/v2/beer/${id}/breweries?key=7d116c2a012e5ed6f81222634ab65613`
       );

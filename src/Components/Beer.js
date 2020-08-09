@@ -56,18 +56,18 @@ export default class Beer extends Component {
             </div>
             <div className="single-beer-info">
               <h3>BREW FACTS:</h3>
-              <p>Name: {beer.name}</p>//
-              <p>Status: {beer.status}</p>//
+              <p>Name: {beer.name}</p>
+              <p>Status: {beer.status}</p>
               <p>Category: </p>
-              <p>Organic: {beer.isOrganic}</p>//
-              <p>Retired: {beer.isRetired}</p>//
+              <p>Organic: {beer.isOrganic}</p>
+              <p>Retired: {beer.isRetired}</p>
               <p>Info:</p>
               <p>What style of beer is this?</p>
               <p>
                 {beer.style.name} (A.K.A {beer.style.shortName})
               </p>
               <p>Details:</p>
-              <p>{beer.style.description}</p>//
+              <p>{beer.style.description}</p>
             </div>
             <Ingredients props={this.props} />
             <Breweries props={this.props} />
