@@ -2,26 +2,60 @@
   margin: 0;
   padding: 0;
 }
+h1,
+h3 {
+  margin: 0;
+  padding: 0;
+}
 body {
   background-color: #ffffff;
 }
+
 .sidebar {
   position: fixed;
   background-color: #3b6978;
   height: 100%;
   width: 20%;
   text-align: center;
-  z-index: 900;
+  z-index: 90;
 }
 .main-content {
   position: absolute;
-  display: flex;
+  top: 8%;
   left: 20%;
   height: 100%;
+  width: 80%;
   flex-wrap: wrap;
   justify-content: center;
 }
-
+.search-form {
+  position: relative;
+  display: inline;
+}
+.search-btn {
+  position: relative;
+  margin: 20px 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.home-screen {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  z-index: 100;
+}
+.home-screen-text {
+  height: 300px;
+  width: 300px;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
 h1 {
   font-family: 'Trirong', serif;
 }
@@ -68,7 +102,7 @@ h1 {
 }
 .single-beer-button {
   position: relative;
-  height: 70.4px;
+  height: 70.5px;
   width: auto;
   background-color: #3b6978;
   border-radius: 1px;
@@ -83,12 +117,15 @@ h1 {
   top: 14%;
   cursor: pointer;
 }
+.single-beer-button button:hover {
+  background-color: #1e8379;
+  transition: 1s;
+}
 .single-beer-info {
   position: relative;
-  height: 700px;
+  height: auto;
   width: 400px;
   padding: 30px;
-  text-align: center;
 }
 .single-beer h1 {
   font-size: 25px;
@@ -96,8 +133,13 @@ h1 {
 .ingredients {
   position: relative;
   height: 400px;
-  width: 400px;
+  width: 500px;
   margin: 0;
+  padding: 30px;
+  text-align: center;
+}
+.ingredients h1 {
+  font-size: 25px;
 }
 .main-title {
   position: relative;
@@ -108,11 +150,14 @@ h1 {
   color: #ffffff;
 }
 .single-beer {
-  text-align: center;
   position: relative;
   height: 700px;
-  width: 400px;
-  padding: 10px;
+  width: 500px;
+  padding: 30px;
+  text-align: center;
+}
+.single-beer h3 {
+  font-size: 25px;
 }
 
 .loader {
@@ -124,4 +169,26 @@ h1 {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+}
+.breweries {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+}
+.add-favorite {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+}
+.add-favorite i {
+  font-size: 50px;
+  color: #26a69a;
+  cursor: pointer;
+}
+.add-favorite i:hover {
+  color: #1e8379;
+  transition: 1s;
 }

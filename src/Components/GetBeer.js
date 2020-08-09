@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import AddFavorite from './AddFavorite';
 
 export default class GetBeer extends Component {
   state = {
@@ -20,9 +21,6 @@ export default class GetBeer extends Component {
         });
       });
   }
-  handleClick = (e) => {
-    console.log(e.target.parentElement);
-  };
   render() {
     const { beers } = this.state;
     const date = new Date();
@@ -44,6 +42,9 @@ export default class GetBeer extends Component {
       if (drink.labels) {
         return (
           <div className="beer-item z-depth-5" style={div} key={drink.id}>
+            <div className="add-favorite">
+              <AddFavorite id={drink} />
+            </div>
             <img src={drink.labels.medium} height="150" width="150" alt="" />
             <div className="single-beer-title">
               <h1 style={h1}>{drink.name}</h1>

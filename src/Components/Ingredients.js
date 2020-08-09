@@ -23,7 +23,6 @@ export default class Ingredients extends Component {
   }
   render() {
     const { ingredients, loading } = this.state;
-    console.log(typeof ingredients);
     if (loading === false) {
       return (
         <div>
@@ -33,7 +32,7 @@ export default class Ingredients extends Component {
     } else if (typeof ingredients === 'undefined') {
       return (
         <div className="ingredients">
-          <h1>Ingredients</h1>
+          <h3>Ingredients</h3>
           <p>
             There are currently no ingredients for this product at this time.
             Please try again later

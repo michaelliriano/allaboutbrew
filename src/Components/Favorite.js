@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Favorites from './Favorites';
 
-const Favorite = () => {
-    return(
+export default class Favorite extends Component {
+  state = {
+    favorites: [],
+  };
+  componentDidMount() {
+    this.setState({ favorites: Object.keys(localStorage) });
+  }
 
-            <div className="main-content">
-                <h1>Favorite Beers</h1>
-            </div>
-  
-    )
+  render() {
+    const { favorites } = this.state;
+    console.log(favorites);
+    return (
+      <div className="main-content">
+        <h1>Your Favorited Beers:</h1>
+      </div>
+    );
+  }
 }
-export default Favorite;

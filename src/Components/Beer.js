@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Ingredients from './Ingredients';
+import Breweries from './Breweries';
 
 export default class Beer extends Component {
   state = {
@@ -43,12 +44,72 @@ export default class Beer extends Component {
     const { beer, loading } = this.state;
     if (loading === false) {
       return <div className="main-content"></div>;
-    } else if (beer.description) {
+    } else if (beer.description && beer.style) {
       return (
         <div className="main-content">
           <div className="single-beer-container">
             <div className="single-beer">
-              <h1>{beer.name}</h1>
+              <h3>{beer.name}</h3>
+              <img src={beer.img.medium} height="300px" width="300px" alt="" />
+              <h6>Description:</h6>
+              <p>{beer.description}</p>
+            </div>
+            <div className="single-beer-info">
+              <h3>BREW FACTS:</h3>
+              <p>Name: {beer.name}</p>//
+              <p>Status: {beer.status}</p>//
+              <p>Category: </p>
+              <p>Organic: {beer.isOrganic}</p>//
+              <p>Retired: {beer.isRetired}</p>//
+              <p>Info:</p>
+              <p>What style of beer is this?</p>
+              <p>
+                {beer.style.name} (A.K.A {beer.style.shortName})
+              </p>
+              <p>Details:</p>
+              <p>{beer.style.description}</p>//
+            </div>
+            <Ingredients props={this.props} />
+            <Breweries props={this.props} />
+          </div>
+        </div>
+      );
+    } else if (!beer.description && !beer.style) {
+      return (
+        <div className="main-content">
+          <div className="single-beer-container">
+            <div className="single-beer">
+              <h3>{beer.name}</h3>
+              <img src={beer.img.large} height="300px" width="300px" alt="" />
+              <p>
+                This beer currently does not have a description. If you would
+                like more information please visit BreweryDB.
+              </p>
+            </div>
+            <div className="single-beer-info">
+              <p>Name: {beer.name}</p>
+              <p>Status: {beer.status}</p>
+              <p>Category: No category listed at this time</p>
+
+              <p>Organic: {beer.isOrganic}</p>
+              <p>Retired: {beer.isRetired}</p>
+              <p>Info:</p>
+              <p>What style of beer is this?</p>
+              <p>no details listed</p>
+              <p>Details:</p>
+              <p>No details listed.</p>
+            </div>
+            <Ingredients props={this.props} />
+            <Breweries props={this.props} />
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="main-content">
+          <div className="single-beer-container">
+            <div className="single-beer">
+              <h3>{beer.name}</h3>
               <img src={beer.img.medium} height="300px" width="300px" alt="" />
               <h6>Description:</h6>
               <p>{beer.description}</p>
@@ -57,47 +118,17 @@ export default class Beer extends Component {
               <h3>BREW FACTS:</h3>
               <p>Name: {beer.name}</p>
               <p>Status: {beer.status}</p>
-              <p>Category: {beer.style.category.name}</p>
+              <p>Category: </p>
               <p>Organic: {beer.isOrganic}</p>
               <p>Retired: {beer.isRetired}</p>
-              <h3>Style:</h3>
+              <p>Info:</p>
               <p>What style of beer is this?</p>
-              <p>
-                {beer.style.name} (A.K.A {beer.style.shortName})
-              </p>
+              <p>No styles currently listed.</p>
               <p>Details:</p>
-              <p>{beer.style.description}</p>
+              <p>No details provided</p>
             </div>
             <Ingredients props={this.props} />
-          </div>
-        </div>
-      );
-    } else if (!beer.description) {
-      return (
-        <div className="main-content">
-          <div className="single-beer">
-            <h3>{beer.name}</h3>
-            <img src={beer.img.large} height="300px" width="300px" alt="" />
-            <p>
-              This beer currently does not have a description. If you would like
-              more information please visit BreweryDB.
-            </p>
-          </div>
-          <div className="single-beer-info">
-            <p>Name: {beer.name}</p>
-            <p>Status: {beer.status}</p>
-            <p>Category: {beer.style.category.name}</p>
-
-            <p>Organic: {beer.isOrganic}</p>
-            <p>Retired: {beer.isRetired}</p>
-            <h3>Style:</h3>
-            <p>What style of beer is this?</p>
-            <p>
-              {beer.style.name} (A.K.A {beer.style.shortName})
-            </p>
-            <p>Details:</p>
-            <p>{beer.style.description}</p>
-            <Ingredients props={this.props} />
+            <Breweries props={this.props} />
           </div>
         </div>
       );
