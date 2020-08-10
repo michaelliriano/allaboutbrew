@@ -56,6 +56,13 @@ body {
   left: 30%;
   transform: translate(-50%, -50%);
 }
+.beer-emoji {
+  position: absolute;
+  top: 45%;
+  right: 10%;
+  transform: translate(-50%, -50%);
+  font-size: 200px;
+}
 h1 {
   font-family: 'Trirong', serif;
 }
@@ -189,6 +196,64 @@ h1 {
   cursor: pointer;
 }
 .add-favorite i:hover {
-  color: #1e8379;
   transition: 1s;
+  color: #197067;
+}
+.remove-favorite {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+}
+.remove-favorite i {
+  font-size: 50px;
+  color: #a62626;
+  cursor: pointer;
+}
+.remove-favorite i:hover {
+  color: #811d1d;
+  transition: 1s;
+}
+.added-fav {
+  display: none;
+  text-align: center;
+  position: absolute;
+  height: auto;
+  padding: 20px;
+  width: 150px;
+  background-color: #1ba000;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%);
+
+  color: #fff;
+  z-index: 95;
+  transition: ease-in-out;
+  transition-duration: 1s;
+}
+.deleted-fav {
+  display: none;
+  text-align: center;
+  position: absolute;
+  height: auto;
+  padding: 20px;
+  width: 150px;
+  background-color: #a00000;
+
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%);
+
+  color: #fff;
+  z-index: 95;
+  transition: ease-in-out;
+  transition-duration: 1s;
+}
+.no-favorites {
+  color: #197067;
+  position: relative;
+  height: 300px;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

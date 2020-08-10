@@ -7,6 +7,7 @@ export default class GetBeer extends Component {
   state = {
     beers: [],
     loading: false,
+    favorited: [],
   };
   async componentDidMount() {
     await axios
@@ -42,7 +43,12 @@ export default class GetBeer extends Component {
       if (drink.labels) {
         return (
           <div key={drink.id}>
-            <div className="beer-item z-depth-5" style={div} key={drink.id}>
+            <div
+              data-id={drink.id}
+              className="beer-item z-depth-5"
+              style={div}
+              key={drink.id}
+            >
               <div className="add-favorite">
                 <AddFavorite id={drink} />
               </div>
@@ -68,6 +74,7 @@ export default class GetBeer extends Component {
           <h1>Discover: {current} </h1>
         </div>
         <div className="loader"></div>
+
         <div className="beer-container">{displayBeers}</div>
       </div>
     );
