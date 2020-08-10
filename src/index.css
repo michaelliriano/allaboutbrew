@@ -151,6 +151,7 @@ h1 {
 .main-title {
   position: relative;
   left: 10%;
+  margin-bottom: 20px;
   text-align: center;
   background-color: #26a69a;
   overflow: hidden;
@@ -256,4 +257,7 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.loading {
+  text-align: center;
 }

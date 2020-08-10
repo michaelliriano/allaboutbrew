@@ -17,11 +17,10 @@ export default class AddFavorite extends Component {
     const clicked = [...this.state.clicked];
     clicked.concat({ clicked: id });
     this.setState({ clicked });
-    console.log(id);
   };
   randomFunction = (prop) => {
     document.querySelector('.added-fav').style.display = 'block';
-    console.log(prop);
+    document.querySelector('.fav-active').style.color = '#972e2e';
     prop.innerHTML = 'check_circle';
     setTimeout(() => {
       console.log('added to favorites');
