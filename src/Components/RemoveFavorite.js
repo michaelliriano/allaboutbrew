@@ -9,6 +9,7 @@ export default class RemoveFavorite extends Component {
     localStorage.removeItem(keyName);
     e.target.parentElement.parentElement.remove();
     this.randomFunction();
+    this.props.empty();
   };
   randomFunction = () => {
     document.querySelector('.deleted-fav').style.display = 'block';

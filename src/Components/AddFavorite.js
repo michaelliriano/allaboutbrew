@@ -23,7 +23,6 @@ export default class AddFavorite extends Component {
     document.querySelector('.fav-active').style.color = '#972e2e';
     prop.innerHTML = 'check_circle';
     setTimeout(() => {
-      console.log('added to favorites');
       document.querySelector('.added-fav').style.display = 'none';
     }, 3000);
   };

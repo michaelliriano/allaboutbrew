@@ -8,12 +8,13 @@ export default class GetBeer extends Component {
     beers: [],
     loading: false,
     favorited: [],
+    error: undefined,
   };
   async componentDidMount() {
     try {
       await axios
         .get(
-          `https://api.brewerydb.com/v2/beers/?key=7d116c2a012e5ed6f81222634ab65613`
+          `https://cors-anywhere.herokuapp.com/https://api.brewerydb.com/v2/beers/?key=7d116c2a012e5ed6f81222634ab65613`
         )
         .then((res) => {
           const beers = res.data.data;
@@ -24,6 +25,7 @@ export default class GetBeer extends Component {
         });
     } catch (error) {
       console.error(error, 'CORS ERROR');
+      this.setState({ error: error.response.statusText });
     }
   }
   render() {
@@ -73,14 +75,39 @@ export default class GetBeer extends Component {
       }
     });
     if (!this.state.loading) {
+      if (this.state.loading) {
+        console.log(this.state.error);
+      }
       return (
         <div className="main-content">
           <div className="loading">
-            <h1>LOADING...</h1>
+            <div className="preloader-wrapper big active">
+              <div className="spinner-layer spinner-blue-only">
+                <div className="circle-clipper left">
+                  <div className="circle"></div>
+                </div>
+                <div className="gap-patch">
+                  <div className="circle"></div>
+                </div>
+                <div className="circle-clipper right">
+                  <div className="circle"></div>
+                </div>
+              </div>
+            </div>
+            <p>Loading...</p>
           </div>
         </div>
       );
-    } else
+    } else if (this.state.empty) {
+      console.log(this.state.error);
+      return (
+        <div className="main-content">
+          <div className="loading">
+            <p>PAGE ERROR</p>
+          </div>
+        </div>
+      );
+    } else if (this.state.loading) {
       return (
         <div>
           <div className="main-title">
@@ -91,6 +118,7 @@ export default class GetBeer extends Component {
           <div className="beer-container">{displayBeers}</div>
         </div>
       );
+    }
   }
 }
 const h1 = {

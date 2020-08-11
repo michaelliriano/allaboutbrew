@@ -23,7 +23,7 @@ export default class Beer extends Component {
   async componentDidMount() {
     let id = this.props.match.params.id;
     const res = await axios.get(
-      `https://api.brewerydb.com/v2/beer/${id}?key=7d116c2a012e5ed6f81222634ab65613`
+      `https://cors-anywhere.herokuapp.com/https://api.brewerydb.com/v2/beer/${id}?key=7d116c2a012e5ed6f81222634ab65613`
     );
     this.setState({
       beer: {
@@ -43,7 +43,24 @@ export default class Beer extends Component {
   render() {
     const { beer, loading } = this.state;
     if (loading === false) {
-      return <div className="main-content"></div>;
+      return (
+        <div className="loading">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <p>Loading...</p>
+          </div>
+        </div>
+      );
     } else if (beer.description && beer.style) {
       return (
         <div className="main-content">

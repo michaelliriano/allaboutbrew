@@ -11,7 +11,7 @@ export default class Ingredients extends Component {
     try {
       let id = this.props.props.match.params.id;
       const response = await axios.get(
-        `https://api.brewerydb.com/v2/beer/${id}/ingredients?key=7d116c2a012e5ed6f81222634ab65613`
+        `https://cors-anywhere.herokuapp.com/https://api.brewerydb.com/v2/beer/${id}/ingredients?key=7d116c2a012e5ed6f81222634ab65613`
       );
       this.setState({
         ingredients: response.data.data,

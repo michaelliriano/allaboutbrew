@@ -9,7 +9,7 @@ export default class Breweries extends Component {
     try {
       let id = this.props.props.match.params.id;
       const response = await axios.get(
-        `https://api.brewerydb.com/v2/beer/${id}/breweries?key=7d116c2a012e5ed6f81222634ab65613`
+        `https://cors-anywhere.herokuapp.com/https://api.brewerydb.com/v2/beer/${id}/breweries?key=7d116c2a012e5ed6f81222634ab65613`
       );
       this.setState({
         breweries: response.data.data,
